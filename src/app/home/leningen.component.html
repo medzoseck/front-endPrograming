@@ -1,0 +1,25 @@
+<table>
+        <tr>
+          <th>
+            Lening ID
+          </th>
+          <th>
+            Startdatum
+          </th>
+          <th>
+            Einddatum
+          </th>
+        </tr>
+      
+        <tr *ngFor="let lening of leningen">
+          <td>
+              {{lening.leningID}}
+          </td>
+          <td>
+            {{lening.startDatum}}
+          </td>
+          <td>
+            {{lening.eindDatum}}
+          </td>
+        </tr>
+      </table>
