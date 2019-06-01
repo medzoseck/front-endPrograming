@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import { Lening } from '../model/lening.component';
+import { Lening } from '../model/lening';
 
 @Component({
-  selector: 'verzoeklijst',
-  templateUrl: './verzoeklijst.component.html',
-  styleUrls: ['../app.component.scss']
+  selector: 'home',
+  templateUrl: './home.component.html',
+  styleUrls: ['../app.component.css']
 })
 
-export class Home {
-  leningen: Lening[];
+export class HomeComponent {
+  
+  // leningen: Lening[];
   constructor(){
-    this.leningen = null; //todo: service
+    // this.leningen = [new Lening(123345,new Date("2018-10-10"), new Date("2020-11-10")),
+    // new Lening(123345,new Date("2018-5-5"), new Date("2020-5-5"))]; //todo: service
+    console.log("leningen constructor");
   }
 }

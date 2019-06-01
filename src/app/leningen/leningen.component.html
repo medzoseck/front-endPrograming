@@ -1,3 +1,4 @@
+leningen:
 <table>
         <tr>
           <th>
@@ -13,13 +14,13 @@
       
         <tr *ngFor="let lening of leningen">
           <td>
-              {{lening.leningID}}
+              {{lening.leningId}}
           </td>
           <td>
-            {{lening.startDatum}}
+            {{formatDate(lening.startDatum)}}
           </td>
           <td>
-            {{lening.eindDatum}}
+            {{formatDate(lening.eindDatum)}}
           </td>
         </tr>
       </table>
