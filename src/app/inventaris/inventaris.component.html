@@ -1,0 +1,26 @@
+
+<table>
+    <tr>
+      <th>
+        Product ID
+      </th>
+      <th>
+        Productnaam
+      </th>
+      <th>
+        Beschrijving
+      </th>
+    </tr>
+  
+    <tr *ngFor="let leenproduct of leenproducten">
+      <td>
+          {{leenproduct.id}}
+      </td>
+      <td>
+        {{leenproduct.naam}}
+      </td>
+      <td>
+        {{leenproduct.beschrijving}}
+      </td>
+    </tr>
+  </table>
