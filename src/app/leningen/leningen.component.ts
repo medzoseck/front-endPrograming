@@ -10,13 +10,11 @@ import { Lening } from '../model/lening';
 export class LeningComponent {
   leningen: Lening[];
   constructor(){
-    this.leningen = [new Lening(123345,new Date("2018-10-10"), new Date("2020-11-10")),
+    this.leningen = [new Lening(123345, new Date("2018-10-10"), new Date("2020-11-10")),
     new Lening(123345,new Date("2018-5-5"), new Date("2020-5-5"))]; //todo: service
-    console.log("ayy lmao");
   }
 
   public formatDate(date: Date): string{
-      console.log("formatdate");
     let day = date.getDate();
     let month = date.getMonth() + 1; //January is 0!
     let daystring = '' + day;
