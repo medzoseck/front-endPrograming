@@ -13,7 +13,7 @@ export class StLeningComponent {
   stLeningen: Lening[];
   /* Tijdelijke manier om studentNr te geven,
    * Moet uiteindelijk vanuit de UI. */
-  studentNr: number = 100001;
+  studentNr: number = 100002;
 
   constructor(private lcomp: LeningComponent) {
     this.stLeningen = this.getStudentsLeningen(this.studentNr);
