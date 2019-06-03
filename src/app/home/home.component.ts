@@ -13,6 +13,6 @@ export class HomeComponent {
   constructor(){
     // this.leningen = [new Lening(123345,new Date("2018-10-10"), new Date("2020-11-10")),
     // new Lening(123345,new Date("2018-5-5"), new Date("2020-5-5"))]; //todo: service
-    console.log("leningen constructor");
+    console.log("HomeComponent constructor");
   }
 }

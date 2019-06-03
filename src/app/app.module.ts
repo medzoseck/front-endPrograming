@@ -4,7 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
-import { LeningComponent } from './leningen/leningen.component';
+import { LeningComponent } from './leningen/lening.component';
+import { StLeningComponent } from './leningen/stlening.component';
 import { InventarisComponent } from './inventaris/inventaris.component';
 import { MenuComponent } from './menu/menu.component';
 
@@ -12,7 +13,12 @@ import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, LeningComponent, InventarisComponent, MenuComponent
+    AppComponent,
+    HomeComponent,
+    LeningComponent,
+    StLeningComponent,
+    InventarisComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

@@ -2,13 +2,15 @@ import { Blok } from './blok';
 
 export class Lening {
   public leningId: number;
+  public studentNr: number;
   public startDatum: Date;
   public eindDatum: Date;
   public afgerond: boolean;
   public teLaat: boolean;
 
-  constructor(leningId: number, startDatum: Date, eindDatum: Date) {
+  constructor(leningId: number, studentNr: number, startDatum: Date, eindDatum: Date) {
     this.leningId = leningId;
+    this.studentNr = studentNr;
     this.startDatum = new Date();
     this.eindDatum = eindDatum;
     this.afgerond = false;
