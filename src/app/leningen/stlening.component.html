@@ -14,9 +14,9 @@
     </th>
   </tr>
 
-  <!-- {{vulStudentsLeningen(100001)}} -->
-<tr *ngFor="let lening of leningen">
-  <ng-container *ngIf="lening.studentNr == 100001">
+  <!-- {{getStudentsLeningen(100001)}} -->
+  <tr *ngFor="let lening of stLeningen">
+    <!-- <ng-container *ngIf="lening.studentNr == 100001"> -->
     <td>
       {{lening.leningId}}
     </td>
@@ -26,6 +26,6 @@
     <td>
       {{formatDate(lening.eindDatum)}}
     </td>
-  </ng-container>
-</tr>
+    <!-- </ng-container> -->
+  </tr>
 </table>
