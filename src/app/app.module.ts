@@ -7,12 +7,18 @@ import { HomeComponent } from './home/home.component';
 import { LeningComponent } from './leningen/leningen.component';
 import { InventarisComponent } from './inventaris/inventaris.component';
 import { MenuComponent } from './menu/menu.component';
+import { ProductDetailsComponent } from './productdetails/productdetails.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, LeningComponent, InventarisComponent, MenuComponent
+    AppComponent, 
+    HomeComponent, 
+    LeningComponent, 
+    InventarisComponent, 
+    MenuComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

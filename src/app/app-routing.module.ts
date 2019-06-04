@@ -3,8 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { InventarisComponent } from './inventaris/inventaris.component';
 import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [{path: 'inventaris', component: InventarisComponent},
-  {path: 'home', component: HomeComponent}];
+const routes: Routes = [
+  {path: '', redirectTo: 'home', pathMatch:'full'},
+  {path: 'inventaris', component: InventarisComponent},
+  {path: 'home', component: HomeComponent},
+  {path: '**', redirectTo: 'home'}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
