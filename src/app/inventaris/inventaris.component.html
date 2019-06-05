@@ -11,10 +11,10 @@
         Beschrijving
       </th>
     </tr>
-  
+  fuck you
     <tr *ngFor="let leenproduct of leenproducten">
-      <td>
-          {{leenproduct.leenproductId}}
+      <td  >
+          <a routerLink="/productdetails/" [queryParams]="{leenproductId:leenproduct.leenproductId}">{{leenproduct.leenproductId}}</a>
       </td>
       <td>
         {{leenproduct.naam}}
