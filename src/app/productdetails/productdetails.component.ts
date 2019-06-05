@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Leenproduct} from '../model/Leenproduct'
 
 @Component({
   selector: 'productdetails',
@@ -8,13 +9,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ProductDetailsComponent{
-  leenproductId = null;;
+  leenproduct : Leenproduct;
+  
 
   constructor(private route: ActivatedRoute){
     this.route.queryParams.subscribe(params => {
-      this.leenproductId = params['leenproductId'];
+      this.leenproduct = zoekLeenProduct(params['leenproductId']);
       
   });
+
+  function zoekLeenProduct(id: number): Leenproduct {
+    //nog niet bestaande service hier aanroepen
+    //todo: implementeren zoekfunctie
+    //alt todo: leenproduct data uit inventaris meegeven.
+    return new Leenproduct(123,"nepitem", "we hebben nog geen database");
+  }
  
   }
 }
