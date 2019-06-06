@@ -10,11 +10,17 @@ import { Router } from '@angular/router';
 
 export class InventarisComponent {
   
-  leenproducten: Leenproduct[] = [new Leenproduct(123,"arduino", "goedkope microcontroller"), 
-    new Leenproduct(321,"PNC-301", "Draagbare nucleaire reactor")];
+  leenproducten: Leenproduct[];
   constructor(private router: Router){
-      
-    // this.leningen = [new Lening(123345,new Date("2018-10-10"), new Date("2020-11-10")),
-    // new Lening(123345,new Date("2018-5-5"), new Date("2020-5-5"))]; //todo: service
+    this.leenproducten = this.haalProductenOp();
+    console.log(this.leenproducten[0].aantal);
+  }
+
+  haalProductenOp(){
+    //doe alsof ik een database heb
+    return [
+    new Leenproduct(123,"arduino", "goedkope microcontroller"), 
+    new Leenproduct(321,"PNC-301", "Draagbare nucleaire reactor",42)
+    ];
   }
 }

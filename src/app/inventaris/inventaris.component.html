@@ -8,7 +8,7 @@
         Productnaam
       </th>
       <th>
-        Beschrijving
+        Aantal
       </th>
     </tr>
     <tr *ngFor="let leenproduct of leenproducten">
@@ -19,7 +19,8 @@
         {{leenproduct.naam}}
       </td>
       <td>
-        {{leenproduct.beschrijving}}
+        {{leenproduct.aantal}}
       </td>
     </tr>
   </table>
+  <a><button routerLink="/nieuwproduct">Nieuw product</button></a>

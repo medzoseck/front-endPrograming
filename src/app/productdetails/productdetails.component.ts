@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Leenproduct} from '../model/Leenproduct'
+import { Leenproduct} from '../model/leenproduct';
 
 @Component({
   selector: 'productdetails',
