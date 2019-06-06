@@ -1,0 +1,21 @@
+<div>
+  <div *ngFor="let item of producten">
+    <div class="row">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-8">
+        <h5>{{item.payload.doc.data().naam}}</h5>
+        <small>{{item.payload.doc.data().beschrijving}}</small>
+        <br>
+        <small>Aantal: {{item.payload.doc.data().aantal}}</small>
+        <br>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-outline-primary">
+          Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
