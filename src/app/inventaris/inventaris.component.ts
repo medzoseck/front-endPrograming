@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-inventaris',
   templateUrl: './inventaris.component.html',
-  styleUrls: ['../app.component.css']
+    styleUrls: ['./inventaris.component.scss']
 })
 
 export class InventarisComponent implements OnInit {
@@ -27,4 +27,8 @@ export class InventarisComponent implements OnInit {
         this.producten = result;
       });
   }
+
+    viewDetails(item) {
+        this.router.navigate(['/details/' + item.payload.doc.id]);
+    }
 }

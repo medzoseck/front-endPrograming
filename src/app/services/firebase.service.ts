@@ -15,4 +15,25 @@ export class FirebaseService {
   getLeningen() {
     return this.db.collection('Lening').snapshotChanges();
   }
+
+  createProduct(value) {
+      return this.db.collection('Producten').add({
+          naam: value.naam,
+          beschrijving: value.beschrijving,
+          aantal: parseInt(value.aantal, 10)
+      });
+  }
+
+    deleteProduct(productKey) {
+        return this.db.collection('Producten').doc(productKey).delete();
+    }
+
+    getProduct(productKey) {
+        return this.db.collection('Producten').doc(productKey).snapshotChanges();
+    }
+
+    updateProduct(productKey, value) {
+        return this.db.collection('Producten').doc(productKey).set(value);
+    }
 }
+

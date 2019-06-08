@@ -4,8 +4,7 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-leningen',
-  templateUrl: './leningen.component.html',
-  styleUrls: ['../app.component.css']
+  templateUrl: './leningen.component.html'
 })
 
 export class LeningComponent implements OnInit {
