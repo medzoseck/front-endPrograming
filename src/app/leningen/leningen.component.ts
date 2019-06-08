@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['../app.component.css']
 })
 
-export class LeningComponent implements OnInit {
+export class LeningenComponent implements OnInit {
 
   leningen: Array<any>;
 
@@ -27,4 +27,25 @@ export class LeningComponent implements OnInit {
           this.leningen = result;
         });
     }
-  }
+
+    public formatDate(date: Date): string {
+        let result: string = "";
+        if (date != null) {
+            //console.log("LeningComponent formatDate, date != null");
+            let day: string = "" + date.getDate();
+            let month: string = "" + (date.getMonth() + 1);
+            let year: string = "" + date.getFullYear();
+            //console.log("day: "+day+", month: "+month+", year: "+year);
+
+            // Maakt dag en maand altijd 2 characters lang, bijv. "05".
+            if (day.length < 2) {
+                day = "0" + day;
+            }
+            if (month.length < 2) {
+                month = "0" + month;
+            }
+            result = day + "-" + month + "-" + year;
+        }
+        return result;
+    }
+}

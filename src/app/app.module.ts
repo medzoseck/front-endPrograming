@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
-import { LeningComponent } from './leningen/leningen.component';
+import { LeningenComponent } from './leningen/leningen.component';
+import { LeningComponent } from './lening/lening.component';
 import { InventarisComponent } from './inventaris/inventaris.component';
 import { ProductDetailsComponent } from './productdetails/productdetails.component';
 import { NieuwProductComponent} from './nieuwproduct/nieuwproduct.component';
@@ -26,6 +27,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
   declarations: [
     AppComponent,
     HomeComponent,
+    LeningenComponent,
     LeningComponent,
     InventarisComponent,
     ProductDetailsComponent,

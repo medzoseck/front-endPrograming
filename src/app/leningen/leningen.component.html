@@ -4,12 +4,12 @@
       <div class="col-md-4">
         <h5>Startdatum Lening</h5>
         <br>
-        <p>{{item.payload.doc.data().startdatum}}</p>
+        <p>{{item.payload.doc.data().startDatum.seconds*1000 | date: 'dd-MM-yyyy'}}</p>
       </div>
       <div class="col-md-4">
         <h5>Einddatum lening</h5>
         <br>
-        <p>{{item.payload.doc.data().einddatum}}</p>
+        <p>{{item.payload.doc.data().eindDatum.seconds*1000 | date: 'dd-MM-yyyy'}}</p>
       </div>
       <div class="col-md-4">
         <h5>Leenproducten</h5>
