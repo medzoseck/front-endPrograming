@@ -1,0 +1,31 @@
+
+<p>Mijn leningen:</p>
+
+<table>
+  <tr>
+    <th>
+      Lening ID
+    </th>
+    <th>
+      Startdatum
+    </th>
+    <th>
+      Einddatum
+    </th>
+  </tr>
+
+  <!-- {{getStudentsLeningen(100001)}} -->
+  <tr *ngFor="let lening of stLeningen">
+    <!-- <ng-container *ngIf="lening.studentNr == 100001"> -->
+    <td>
+      {{lening.leningId}}
+    </td>
+    <td>
+      {{formatDate(lening.startDatum)}}
+    </td>
+    <td>
+      {{formatDate(lening.eindDatum)}}
+    </td>
+    <!-- </ng-container> -->
+  </tr>
+</table>
