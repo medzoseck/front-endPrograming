@@ -20,8 +20,9 @@ import { FirebaseService } from './services/firebase.service';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from '@angular/material';
+import {MatButtonModule, MatInputModule, MatSliderModule} from '@angular/material';
 import {ProductDetailResolver} from './product-detail/product-detail.resolver';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +47,6 @@ import {ProductDetailResolver} from './product-detail/product-detail.resolver';
       MatButtonModule,
       MatInputModule,
       MatSliderModule,
-      MatDialogModule,
       ReactiveFormsModule,
   ],
   providers: [FirebaseService, ProductDetailResolver],
