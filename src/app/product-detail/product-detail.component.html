@@ -1,0 +1,62 @@
+<div class="create-page">
+  <div class="page-content">
+    <div class="row">
+      <div class="col col-md-8">
+
+        <form class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Naam" class="form-control" formControlName="naam">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validationMessages.naam">
+              <mat-error *ngIf="exampleForm.get('naam').hasError(validation.type) && (exampleForm.get('naam').dirty || exampleForm.get('naam').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Beschrijving" class="form-control" formControlName="beschrijving">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validationMessages.beschrijving">
+              <mat-error *ngIf="exampleForm.get('beschrijving').hasError(validation.type) && (exampleForm.get('beschrijving').dirty || exampleForm.get('beschrijving').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput type="number" min="0" max="50" placeholder="Aantal" class="form-control" formControlName="aantal">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validationMessages.aantal">
+              <mat-error *ngIf="exampleForm.get('aantal').hasError(validation.type) && (exampleForm.get('aantal').dirty || exampleForm.get('aantal').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <a routerLink="/inventaris" routerLinkActive="active">
+                <button mat-raised-button class="submit-button" color="primary">
+                  Terug
+                </button>
+              </a>
+            </div>
+              <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">
+                Update product
+               </button>
+            </div>
+          </div>
+            <div class="row submit-button-container">
+                <div class="col-md-4">
+                    <button mat-raised-button class="delete-button" color="warn" type="button" (click)="deleteProduct()">
+                        Delete product
+                    </button>
+                </div>
+            </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
