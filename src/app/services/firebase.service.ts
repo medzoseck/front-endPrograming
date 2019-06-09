@@ -50,6 +50,12 @@ export class FirebaseService {
     });
   }
 
+  /*
+  getLening() { 
+    //return this.db.collection('Lening').doc(productKey).snapshotChanges();
+  }
+  */
+
   createLeningProduct(value) {
     return this.db.collection('LeningProduct').add({
       leningId: value.leningId,

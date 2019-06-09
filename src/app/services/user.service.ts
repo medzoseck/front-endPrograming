@@ -20,13 +20,12 @@ export class UserService implements OnInit {
     }
     // haalt user op uit de database die de gebruiker is    
     getUser() : User {
-       
         this.db.collection('Users').snapshotChanges().subscribe( item => {
             item.forEach(element => {
                if(element.payload.doc.get("gebruiker") == this.GetGebruikerID()){
                 this.user.admin = element.payload.doc.get("admin");
                 this.user.gebruiker = element.payload.doc.get("gebruiker");
-                this.user.studentnr = element.payload.doc.get("studentnr");
+                this.user.studentNr = element.payload.doc.get("studentNr");
                }
             })
         });
@@ -49,6 +48,6 @@ export class UserService implements OnInit {
 
 export class User {
     gebruiker: string;
-    studentnr: string;
+    studentNr: number;
     admin: boolean;
 }

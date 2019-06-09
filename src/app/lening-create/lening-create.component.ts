@@ -11,8 +11,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./lening-create.component.scss']
 })
 export class LeningCreateComponent implements OnInit {
-  lening: Lening;
   exampleForm: FormGroup;
+  lening: Lening;
 
   constructor(
     private fb: FormBuilder,
@@ -22,50 +22,13 @@ export class LeningCreateComponent implements OnInit {
 
   ngOnInit() {
     let l: Lening = this.getTempLening();
-    if (l != null) {
-      this.lening = l;
-    }
-    else {
+    if (l == null) {
       this.createTempLening();
     }
-    this.createForm();
-  }
-
-  createTempLening() {
-    //let studentNr: number = this.userService.getUserStudentNr(this.userService.GetGebruikerID); // TODO: Medzo maakt deze methode
-    let studentNr: number = 100001;
-    let l: Lening = new Lening(studentNr);
-    this.setTempLening(l);
-  }
-
-  setTempLening(value) {
-    localStorage.setItem('tempLening', JSON.stringify(value));
-    this.lening = value;
-  }
-
-  getTempLening(): Lening {
-    let l: Lening = JSON.parse(localStorage.getItem('tempLening'));
-    return l;
-  }
-
-  getLeningProducten(): LeningProduct[] {
-    let lps: LeningProduct[] = JSON.parse(localStorage.getItem('leningProducten'));
-    return lps;
-  }
-
-  slaLeningOp() {
-    this.lening = this.getTempLening()
-    this.firebaseService.createLening(this.lening);
-    this.slaLeningProductenOp();
-  }
-
-  slaLeningProductenOp() {
-    let lps: LeningProduct[] = this.getLeningProducten();
-    if (lps != null && lps.length > 0) {
-      for (let lp in lps) {
-        this.firebaseService.createLeningProduct(lp);
-      }
+    else {
+      this.setTempLening(l);
     }
+    this.createForm();
   }
 
   createForm() {
@@ -76,5 +39,50 @@ export class LeningCreateComponent implements OnInit {
       afgerond: [this.lening.afgerond],
       teLaat: [this.lening.teLaat]
     });
+  }
+
+  getTempLening(): Lening {
+    let l: Lening = JSON.parse(localStorage.getItem('tempLening'));
+    return l;
+  }
+
+  createTempLening() {
+    //let studentNr: number = this.userService.getUserStudentNr(this.userService.GetGebruikerID());
+    //let studentNr: number = 100001;
+    let studentNr: number = this.userService.getUser().studentNr;
+    console.log("createTempLening() User.studentNr: " + studentNr); // TODO: Uitzoeken waarom studentNr niet geset is.
+    let l: Lening = new Lening(studentNr);
+    this.setTempLening(l);
+  }
+
+  setTempLening(value) {
+    localStorage.setItem('tempLening', JSON.stringify(value));
+    this.lening = value;
+  }
+
+  getLeningProducten(): LeningProduct[] {
+    let lps: LeningProduct[] = JSON.parse(localStorage.getItem('leningProducten'));
+    return lps;
+  }
+
+  setLeningProducten(lps: LeningProduct[]) {
+    localStorage.setItem('leningProducten', JSON.stringify(lps));
+  }
+
+  slaLeningOp() {
+    let l: Lening = this.getTempLening();
+    this.firebaseService.createLening(l);
+    let lId = this.firebaseService.getLeningId(); // TODO: De lening die net gemaakt is weer opvragen, en daarvan Id ontvangen.
+    this.slaLeningProductenOp(lId);
+  }
+
+  slaLeningProductenOp(lId) {
+    let lps: LeningProduct[] = this.getLeningProducten();
+    if (lps != null && lps.length > 0) {
+      for (let lp in lps) {
+        lp.setLeningId(lId); // TODO: Van deze string een LeningProduct maken, om setLeningId op aan te roepen.
+        this.firebaseService.createLeningProduct(lp);
+      }
+    }
   }
 }

@@ -61,11 +61,9 @@
   </div>
 </form>
 <br />
-<a routerLink="/inventaris" routerLinkActive="active">
-  <button mat-raised-button class="submit-button" color="primary" (click)="createTempLening()" type="button">
-    Maak nieuwe lening aan
-  </button>
-</a>
+<button mat-raised-button class="submit-button" color="primary" (click)="createTempLening()" type="button">
+  Maak nieuwe lening aan
+</button>
 <!-- <button (click)="setTempLening(lening)" type="button">Bewaar wijziging</button> -->
 <a routerLink="/inventaris" routerLinkActive="active">
   <button mat-raised-button class="submit-button" color="primary" (click)="slaLeningOp()" type="button">
@@ -73,3 +71,25 @@
   </button>
 </a>
 <br />
+<div>
+  <div *ngFor="let item of getLeningProducten()">
+    <div class="row" style="margin-top: 10vh">
+      <div class="col-md-4">
+        <h5>leningId:</h5>
+        <br>
+        <p>{{item.leningId}}</p> <!-- Tijdelijk deze variabele, om te zien of het binnenkomt. Uiteindelijk niets. -->
+      </div>
+      <div class="col-md-4">
+        <h5>productId:</h5>
+        <br>
+        <p>{{item.productId}}</p> <!-- Tijdelijk deze variabele, om te zien of het binnenkomt. Uiteindelijk Product attributen. -->
+      </div>
+      <div class="col-md-4">
+        <h5>Aantal:</h5>
+        <br>
+        <p>{{item.aantal}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -10,6 +10,7 @@ import { ProductDetailResolver } from './product-detail/product-detail.resolver'
 import { InventarisStudentComponent } from './inventaris-student/inventaris-student.component';
 import { ProductDetailStudentComponent } from './product-detail-student/product-detail-student.component';
 import { ProductDetailStudentResolver } from './product-detail-student/product-detail-student.resolver';
+import { LeningCreateComponent } from './lening-create/lening-create.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,9 +18,10 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [AdminGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'create-product', component: ProductCreateComponent},
-  {path: 'details/:id', component: ProductDetailComponent, resolve: {data : ProductDetailResolver} },
+  {path: 'details/:id', component: ProductDetailComponent, resolve: {data : ProductDetailResolver}},
   {path: 'inventaris-student', component: InventarisStudentComponent},
-  {path: 'details-student/:id', component: ProductDetailStudentComponent, resolve: {data : ProductDetailStudentResolver} },
+  {path: 'details-student/:id', component: ProductDetailStudentComponent, resolve: { data: ProductDetailStudentResolver }},
+  {path: 'lening-create', component: LeningCreateComponent}
 ];
 
 @NgModule({
