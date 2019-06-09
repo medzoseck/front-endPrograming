@@ -1,0 +1,21 @@
+<div>
+  <div *ngFor="let item of leningen">
+    <div class="row" style="margin-top: 10vh">
+      <div class="col-md-4">
+        <h5>studentnr lening</h5>
+        <br>
+        <p>{{item.studentnr}}</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Startdatum Lening</h5>
+        <br>
+        <p>{{item.startdatum}}</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Einddatum lening</h5>
+        <br>
+        <p>{{item.einddatum}}</p>
+      </div>
+    </div>
+  </div>
+</div>
