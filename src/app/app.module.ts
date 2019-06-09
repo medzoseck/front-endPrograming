@@ -11,20 +11,24 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent} from './header/header.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
-import { ProductDetailResolver } from './product-detail/product-detail.resolver';
 import { InventarisStudentComponent } from './inventaris-student/inventaris-student.component';
 import { ProductDetailStudentComponent } from './product-detail-student/product-detail-student.component';
 import { ProductDetailStudentResolver } from './product-detail-student/product-detail-student.resolver';
+import { LeningCreateComponent } from './lening-create/lening-create.component';
+import { ProductDetailResolver } from './product-detail/product-detail.resolver';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
+import { UserService } from './services/user.service';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatInputModule, MatSliderModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatInputModule, MatSliderModule } from '@angular/material';
+
+
 
 @NgModule({
   declarations: [
@@ -38,6 +42,8 @@ import {MatButtonModule, MatInputModule, MatSliderModule} from '@angular/materia
     ProductCreateComponent,
     InventarisStudentComponent,
     ProductDetailStudentComponent
+    ProductCreateComponent,
+    LeningCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -47,13 +53,13 @@ import {MatButtonModule, MatInputModule, MatSliderModule} from '@angular/materia
     AngularFirestoreModule,
     AngularFontAwesomeModule,
     AngularFireAuthModule,
-      BrowserAnimationsModule,
-      MatButtonModule,
-      MatInputModule,
-      MatSliderModule,
-      ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSliderModule,
+    ReactiveFormsModule,
   ],
-  providers: [FirebaseService, ProductDetailResolver, ProductDetailStudentResolver],
+  providers: [FirebaseService, ProductDetailResolver, ProductDetailStudentResolver, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

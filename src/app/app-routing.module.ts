@@ -4,10 +4,10 @@ import { InventarisComponent } from './inventaris/inventaris.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent} from './login/login.component';
 import { AdminGuard} from './auth/admin.guard';
-import {ProductCreateComponent} from './product-create/product-create.component';
-import {ProductDetailComponent} from './product-detail/product-detail.component';
-import {ProductDetailResolver} from './product-detail/product-detail.resolver';
-import {InventarisStudentComponent} from './inventaris-student/inventaris-student.component';
+import { ProductCreateComponent } from './product-create/product-create.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductDetailResolver } from './product-detail/product-detail.resolver';
+import { InventarisStudentComponent } from './inventaris-student/inventaris-student.component';
 import { ProductDetailStudentComponent } from './product-detail-student/product-detail-student.component';
 import { ProductDetailStudentResolver } from './product-detail-student/product-detail-student.resolver';
 
