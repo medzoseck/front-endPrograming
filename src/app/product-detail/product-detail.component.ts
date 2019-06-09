@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatDialog} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FirebaseService} from '../services/firebase.service';
 
@@ -64,7 +63,7 @@ export class ProductDetailComponent implements OnInit {
     }
 
     deleteProduct() {
-      if(window.confirm('Weet je zeker dat je dit product wilt verwijderen?')){
+      if(window.confirm('Weet u zeker dat u dit product wilt verwijderen?')){
         this.firebaseService.deleteProduct(this.product.id)
             .then(
                 res => {
