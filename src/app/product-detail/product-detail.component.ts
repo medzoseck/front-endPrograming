@@ -64,6 +64,7 @@ export class ProductDetailComponent implements OnInit {
     }
 
     deleteProduct() {
+      if(window.confirm('Weet je zeker dat je dit product wilt verwijderen?')){
         this.firebaseService.deleteProduct(this.product.id)
             .then(
                 res => {
@@ -72,7 +73,7 @@ export class ProductDetailComponent implements OnInit {
                 err => {
                     console.log(err);
                 }
-            );
+            )};
     }
 
 }
