@@ -14,18 +14,23 @@ export class LeningComponent implements OnInit {
   constructor(
     public firebaseService: FirebaseService,
     private router: Router
-  ) { }
+  ) { 
+    this.leningen = new Array<any>();
+  }
 
     ngOnInit() {
       this.getData();
     }
 
     getData() {
-      //this.firebaseService.getStudentLeningen()
       this.firebaseService.getLeningen()
         .subscribe(result => {
-          this.leningen = result;
+          result.forEach(element => {
+            this.leningen.push(element.payload.doc.data());
+            })
         });
+        console.log(this.leningen);
     }
+
 
   }
