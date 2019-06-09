@@ -2,6 +2,11 @@
   <div *ngFor="let item of leningen">
     <div class="row" style="margin-top: 10vh">
       <div class="col-md-4">
+        <h5>studentnr lening</h5>
+        <br>
+        <p>{{item.payload.doc.data().studentnr}}</p>
+      </div>
+      <div class="col-md-4">
         <h5>Startdatum Lening</h5>
         <br>
         <p>{{item.payload.doc.data().startdatum}}</p>
@@ -10,10 +15,6 @@
         <h5>Einddatum lening</h5>
         <br>
         <p>{{item.payload.doc.data().einddatum}}</p>
-      </div>
-      <div class="col-md-4">
-        <h5>Leenproducten</h5>
-        <br>
       </div>
     </div>
   </div>
