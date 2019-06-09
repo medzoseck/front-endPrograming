@@ -11,11 +11,12 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent} from './header/header.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
+import { ProductDetailResolver } from './product-detail/product-detail.resolver';
 import { InventarisStudentComponent } from './inventaris-student/inventaris-student.component';
 import { ProductDetailStudentComponent } from './product-detail-student/product-detail-student.component';
 import { ProductDetailStudentResolver } from './product-detail-student/product-detail-student.resolver';
 import { LeningCreateComponent } from './lening-create/lening-create.component';
-import { ProductDetailResolver } from './product-detail/product-detail.resolver';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -41,7 +42,7 @@ import { MatButtonModule, MatInputModule, MatSliderModule } from '@angular/mater
     ProductDetailComponent,
     ProductCreateComponent,
     InventarisStudentComponent,
-    ProductDetailStudentComponent
+    ProductDetailStudentComponent,
     ProductCreateComponent,
     LeningCreateComponent
   ],
