@@ -17,6 +17,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
+import { UserService } from './services/user.service';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -49,7 +50,7 @@ import {ProductDetailResolver} from './product-detail/product-detail.resolver';
       MatSliderModule,
       ReactiveFormsModule,
   ],
-  providers: [FirebaseService, ProductDetailResolver],
+  providers: [FirebaseService, ProductDetailResolver,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
