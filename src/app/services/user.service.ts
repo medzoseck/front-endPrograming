@@ -8,7 +8,6 @@ export class UserService implements OnInit {
     user : User;
 
     constructor(public db: AngularFirestore) {
-        this.user = new User();
     }
     
     ngOnInit() {
@@ -20,6 +19,7 @@ export class UserService implements OnInit {
     }
     // haalt user op uit de database die de gebruiker is    
     getUser() : User {
+        this.user = new User();
         this.db.collection('Users').snapshotChanges().subscribe( item => {
             item.forEach(element => {
                if(element.payload.doc.get("gebruiker") == this.GetGebruikerID()){
