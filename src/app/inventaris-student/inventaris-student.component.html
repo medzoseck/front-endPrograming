@@ -1,0 +1,27 @@
+<div class="row" style="margin-top: 3vh">
+  <div class="col-md-3" style="padding-left: 5vw"></div>
+  <div class="col-md-5">
+    <h3>
+      Hier ziet u het huidige inventaris
+    </h3>
+  </div>
+</div>
+<div class="list-group users-list">
+  <div *ngFor="let item of producten" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col-md-8 text-col">
+        <h5>{{item.payload.doc.data().naam}}</h5>
+        <small>{{item.payload.doc.data().beschrijving}}</small>
+        <br>
+        <br>
+        <small>Aantal op voorraad: {{item.payload.doc.data().aantal}}</small>
+        <br>
+      </div>
+      <div class="col-md-2 actions-col">
+        <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
+          Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
