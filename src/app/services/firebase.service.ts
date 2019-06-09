@@ -41,7 +41,7 @@ export class FirebaseService {
   }
 
   createLening(value) {
-    return this.db.collection('LeningProduct').add({
+    return this.db.collection('Lening').add({
       studentNr: value.studentNr,
       startDatum: value.startDatum,
       eindDatum: value.eindDatum,
