@@ -3,13 +3,14 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTr
 import { Observable } from 'rxjs';
 
 import { AuthService } from './auth.service';
+import { UserService } from '../services/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private userService: UserService) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -19,6 +20,17 @@ export class AdminGuard implements CanActivate {
     }
     else{
       return this.router.parseUrl("/app-login");
+    }
+  }
+
+  canAcces(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (this.userService.isAdmin()){
+      return true;
+    }
+    else{
+      return this.router.parseUrl("/app-home");
     }
   }
 

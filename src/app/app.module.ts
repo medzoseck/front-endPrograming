@@ -16,7 +16,7 @@ import { InventarisStudentComponent } from './inventaris-student/inventaris-stud
 import { ProductDetailStudentComponent } from './product-detail-student/product-detail-student.component';
 import { ProductDetailStudentResolver } from './product-detail-student/product-detail-student.resolver';
 import { LeningCreateComponent } from './lening-create/lening-create.component';
-
+import { ConvertBoolPipe } from './pipes/convertbool.pipe';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -29,7 +29,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatInputModule, MatSliderModule } from '@angular/material';
 
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,8 @@ import { MatButtonModule, MatInputModule, MatSliderModule } from '@angular/mater
     InventarisStudentComponent,
     ProductDetailStudentComponent,
     ProductCreateComponent,
-    LeningCreateComponent
+    LeningCreateComponent,
+    ConvertBoolPipe
   ],
   imports: [
     BrowserModule,
@@ -59,6 +60,7 @@ import { MatButtonModule, MatInputModule, MatSliderModule } from '@angular/mater
     MatInputModule,
     MatSliderModule,
     ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [FirebaseService, ProductDetailResolver, ProductDetailStudentResolver, UserService],
   bootstrap: [AppComponent]

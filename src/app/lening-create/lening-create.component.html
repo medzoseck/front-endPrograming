@@ -1,3 +1,75 @@
 <p>
-  lening-create works!
+  Hier ziet u de huidige lening:
 </p>
+<br />
+<!--
+<form>
+  <div class="form-group">
+    <label for="studentNr">Studentnr: </label>
+    <input type="number" value="{{lening.studentNr}}" disabled />
+  </div>
+  <div class="form-group">
+    <label for="startDatum">Startdatum: </label>
+    <input type="date" class="form-control" id="startDatum" value="{{lening.startDatum.seconds*1000 | date: 'dd-MM-yyyy'}}" />
+  </div>
+  <div class="form-group">
+    <label for="eindDatum">Einddatum: </label>
+    <input type="date" class="form-control" id="eindDatum" value="{{lening.eindDatum.seconds*1000 | date: 'dd-MM-yyyy'}}" />
+  </div>
+  <div class="form-group">
+    <label for="afgerond">Afgerond: </label>
+    <input type="checkbox" class="form-control" id="afgerond" value="{{lening.afgerond | convertBool}}" disabled />
+  </div>
+  <div class="form-group">
+    <label for="teLaat">Te laat: </label>
+    <input type="checkbox" class="form-control" id="teLaat" value="{{lening.teLaat | convertBool}}" disabled />
+  </div>
+</form>
+-->
+
+<form class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="setTempLening(exampleForm.value)">
+  <div class="form-group">
+    <label>Studentnummer:</label>
+    <mat-form-field class="input-style">
+      <input matInput type="number" class="form-control" formControlName="studentNr" disabled>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <label>Startdatum:</label>
+    <mat-form-field class="input-style">
+      <input matInput type="date" class="form-control" formControlName="startDatum">
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <label>Einddatum:</label>
+    <mat-form-field class="input-style">
+      <input matInput type="date" class="form-control" formControlName="eindDatum">
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-checkbox formControlName="afgerond" disabled>Afgerond: </mat-checkbox>
+  </div>
+  <div class="form-group">
+    <mat-checkbox formControlName="teLaat" disabled>Te laat: </mat-checkbox>
+  </div>
+  <div class="row submit-button-container">
+    <div class="col-md-4">
+      <button mat-raised-button class="submit-button" color="primary" (click)="setTempLening(value)">
+        Bewaar wijziging
+      </button>
+    </div>
+  </div>
+</form>
+<br />
+<a routerLink="/inventaris" routerLinkActive="active">
+  <button mat-raised-button class="submit-button" color="primary" (click)="createTempLening()" type="button">
+    Maak nieuwe lening aan
+  </button>
+</a>
+<!-- <button (click)="setTempLening(lening)" type="button">Bewaar wijziging</button> -->
+<a routerLink="/inventaris" routerLinkActive="active">
+  <button mat-raised-button class="submit-button" color="primary" (click)="slaLeningOp()" type="button">
+    Sla lening op
+  </button>
+</a>
+<br />
