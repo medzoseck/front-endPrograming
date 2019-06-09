@@ -1,6 +1,6 @@
 <div class="row" style="margin-top: 3vh">
   <div class="col-md-3" style="padding-left: 5vw">
-      <a routerLink="/create-product" routerLinkActive="active"><button mat-raised-button color="primary" class="btn btn-outline-primary">
+      <a routerLink="/create-product" routerLinkActive="active"><button mat-raised-button color="primary" class="submit-button">
       Nieuw product
     </button></a>
   </div>
@@ -17,7 +17,8 @@
         <h5>{{item.payload.doc.data().naam}}</h5>
         <small>{{item.payload.doc.data().beschrijving}}</small>
         <br>
-        <small>Aantal: {{item.payload.doc.data().aantal}}</small>
+        <br>
+        <small>Aantal op voorraad: {{item.payload.doc.data().aantal}}</small>
         <br>
       </div>
       <div class="col-md-2 actions-col">
