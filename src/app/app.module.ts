@@ -12,6 +12,7 @@ import { HeaderComponent} from './header/header.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
 import { LeningCreateComponent } from './lening-create/lening-create.component';
+import { ConvertBoolPipe } from './pipes/convertbool.pipe';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -21,9 +22,10 @@ import { FirebaseService } from './services/firebase.service';
 import { UserService } from './services/user.service';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatInputModule, MatSliderModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatInputModule, MatSliderModule } from '@angular/material';
 import { ProductDetailResolver } from './product-detail/product-detail.resolver';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { ProductDetailResolver } from './product-detail/product-detail.resolver'
     HeaderComponent,
     ProductDetailComponent,
     ProductCreateComponent,
-    LeningCreateComponent
+    LeningCreateComponent,
+    ConvertBoolPipe
   ],
   imports: [
     BrowserModule,
@@ -46,11 +49,12 @@ import { ProductDetailResolver } from './product-detail/product-detail.resolver'
     AngularFirestoreModule,
     AngularFontAwesomeModule,
     AngularFireAuthModule,
-      BrowserAnimationsModule,
-      MatButtonModule,
-      MatInputModule,
-      MatSliderModule,
-      ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSliderModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [FirebaseService, ProductDetailResolver,UserService],
   bootstrap: [AppComponent]

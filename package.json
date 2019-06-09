@@ -22,6 +22,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@material/checkbox": "^2.3.0",
     "@material/form-field": "^2.3.0",
     "angular-dialog": "^1.1.0",
     "angular-font-awesome": "^3.1.2",

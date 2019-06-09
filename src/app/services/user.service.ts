@@ -47,7 +47,7 @@ export class UserService implements OnInit {
     }
 }
 
-class User {
+export class User {
     gebruiker: string;
     studentnr: string;
     admin: boolean;

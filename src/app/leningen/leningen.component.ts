@@ -21,9 +21,11 @@ export class LeningComponent implements OnInit {
     }
 
     getData() {
+      //this.firebaseService.getStudentLeningen()
       this.firebaseService.getLeningen()
         .subscribe(result => {
           this.leningen = result;
         });
     }
+
   }
