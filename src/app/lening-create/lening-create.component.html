@@ -31,7 +31,7 @@
   <div class="form-group">
     <label>Studentnummer:</label>
     <mat-form-field class="input-style">
-      <input matInput type="number" class="form-control" formControlName="studentNr" disabled>
+      <input matInput type="number" class="form-control" formControlName="studentNr" disabled> <!-- BUG: "disabled" wordt zo te zien genegeerd -->
     </mat-form-field>
   </div>
   <div class="form-group">
@@ -72,6 +72,7 @@
 </a>
 <br />
 <div>
+  De producten:
   <div *ngFor="let item of getLeningProducten()">
     <div class="row" style="margin-top: 10vh">
       <div class="col-md-4">

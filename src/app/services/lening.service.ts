@@ -11,7 +11,7 @@ export class LeningService implements OnInit {
     lening: Lening;
 
     constructor(public db: AngularFirestore,public userService : UserService) {
-        this.lening = new Lening(userService.getUser().studentnr);
+        this.lening = new Lening(userService.getUser().studentNr);
     }
     
     ngOnInit() {}
@@ -20,7 +20,7 @@ export class LeningService implements OnInit {
         let leningen : Array<Lening> = new Array<Lening>();
         this.db.collection('Lening').snapshotChanges().subscribe( item => {
             item.forEach(element => {
-               if(element.payload.doc.get("studentNr") == this.userService.getUser().studentnr){
+               if(element.payload.doc.get("studentNr") == this.userService.getUser().studentNr){
                 this.lening.startDatum = element.payload.doc.get("startDatum");
                 this.lening.eindDatum = element.payload.doc.get("eindDatum");
                 this.lening.studentNr = element.payload.doc.get("studentNr");
@@ -31,7 +31,7 @@ export class LeningService implements OnInit {
                 }
             })
         });
-        console.log(this.userService.getUser().studentnr)
+        console.log(this.userService.getUser().studentNr)
         return leningen;
     }
 }
