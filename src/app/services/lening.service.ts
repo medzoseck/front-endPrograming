@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Lening } from '../model/lening';
 import { UserService } from './user.service';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,10 @@ import { UserService } from './user.service';
 export class LeningService implements OnInit {
     
     lening: Lening;
+    user: User = this.userService.getUser();
 
     constructor(public db: AngularFirestore,public userService : UserService) {
-        this.lening = new Lening(userService.getUser().studentNr);
+        this.lening = new Lening(this.user.studentNr);
     }
     
     ngOnInit() {}
@@ -20,7 +22,7 @@ export class LeningService implements OnInit {
         let leningen : Array<Lening> = new Array<Lening>();
         this.db.collection('Lening').snapshotChanges().subscribe( item => {
             item.forEach(element => {
-               if(element.payload.doc.get("studentNr") == this.userService.getUser().studentNr){
+               if(element.payload.doc.get("studentNr") == this.user.studentNr){
                 this.lening.startDatum = element.payload.doc.get("startDatum");
                 this.lening.eindDatum = element.payload.doc.get("eindDatum");
                 this.lening.studentNr = element.payload.doc.get("studentNr");
@@ -31,7 +33,6 @@ export class LeningService implements OnInit {
                 }
             })
         });
-        console.log(this.userService.getUser().studentNr)
         return leningen;
     }
 }

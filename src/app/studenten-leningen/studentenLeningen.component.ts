@@ -5,11 +5,11 @@ import { Lening } from '../model/lening';
 import { LeningService } from '../services/lening.service';
 
 @Component({
-  selector: 'app-studentenleningen',
+  selector: 'studentenleningen',
   templateUrl: './studentenLeningen.component.html'
 })
 
-export class studentenLeningComponent implements OnInit {
+export class StudentenLeningComponent implements OnInit {
 
   leningen: Array<Lening>;
 

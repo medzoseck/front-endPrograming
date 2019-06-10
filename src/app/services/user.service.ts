@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -44,10 +45,4 @@ export class UserService implements OnInit {
         });
         return false;
     }
-}
-
-export class User {
-    gebruiker: string;
-    studentNr: number;
-    admin: boolean;
 }
