@@ -13,6 +13,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductCreateComponent } from './product-create/product-create.component';
 import { ProductDetailResolver } from './product-detail/product-detail.resolver';
 import { InventarisStudentComponent } from './inventaris-student/inventaris-student.component';
+import { StudentenLeningComponent } from './studenten-leningen/studentenLeningen.component';
 import { ProductDetailStudentComponent } from './product-detail-student/product-detail-student.component';
 import { ProductDetailStudentResolver } from './product-detail-student/product-detail-student.resolver';
 import { LeningCreateComponent } from './lening-create/lening-create.component';
@@ -39,6 +40,7 @@ import { LoginGuard } from './auth/login.guard';
     AppComponent,
     HomeComponent,
     LeningComponent,
+    StudentenLeningComponent,
     InventarisComponent,
     LoginComponent,
     HeaderComponent,
