@@ -31,6 +31,9 @@ import { MatButtonModule, MatInputModule, MatSliderModule } from '@angular/mater
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+import { AdminGuard} from './auth/admin.guard';
+import { LoginGuard } from './auth/login.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
