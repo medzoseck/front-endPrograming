@@ -10,7 +10,7 @@ import {FirebaseService} from '../services/firebase.service';
   styleUrls: ['./product-detail-student.component.scss']
 })
 export class ProductDetailStudentComponent implements OnInit {
-
+  productArray = [];
   product: any;
   exampleForm: FormGroup;
   anderAantal: any;
@@ -46,17 +46,17 @@ export class ProductDetailStudentComponent implements OnInit {
 
   createForm() {
     this.exampleForm = this.fb.group({
-      naam: [this.product.naam, Validators.required ],
-      beschrijving: [this.product.beschrijving, Validators.required ],
-      aantal: [this.product.aantal, Validators.required ]
+      naam: [this.product.naam, Validators.required],
+      beschrijving: [this.product.beschrijving, Validators.required],
+      aantal: [this.product.aantal, Validators.required]
     });
   }
 
-  toLocalStorage(){
+  toLocalStorage() {
     this.product.aantal = 1;
-    localStorage.setItem('leningProducten', JSON.stringify(this.product));
+    this.productArray.push(this.product);
+    localStorage.setItem('leningProducten', JSON.stringify(this.productArray));
     alert('Product toegevoegd aan lening!');
     this.router.navigate(['/inventaris-student/']);
-    }
-
+  }
 }

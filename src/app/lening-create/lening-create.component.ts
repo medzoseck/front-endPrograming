@@ -14,6 +14,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class LeningCreateComponent implements OnInit {
   exampleForm: FormGroup;
   lening: Lening;
+  leningProducten: Array<LeningProduct>;
 
   constructor(
     private fb: FormBuilder,
@@ -30,6 +31,7 @@ export class LeningCreateComponent implements OnInit {
     else {
       this.setTempLening(l);
     }
+    this.leningProducten = this.getLeningProducten();
     this.createForm();
   }
 
@@ -49,11 +51,8 @@ export class LeningCreateComponent implements OnInit {
   }
 
   createTempLening() {
-    //let studentNr: number = this.userService.getUserStudentNr(this.userService.GetGebruikerID());
-    //let studentNr: number = 100001;
     let u: User = this.userService.getUser();
-    let studentNr: number = u.studentNr;
-    console.log("createTempLening() User.studentNr: " + studentNr); // TODO: Uitzoeken waarom studentNr niet geset is.
+    let studentNr: number = u.studentNr; // TODO: Uitzoeken waarom studentNr niet geset is.
     let l: Lening = new Lening(studentNr);
     this.setTempLening(l);
   }
@@ -63,27 +62,21 @@ export class LeningCreateComponent implements OnInit {
     this.lening = value;
   }
 
-  getLeningProducten(): Array<LeningProduct> {
-    let lps: Array<LeningProduct> = JSON.parse(localStorage.getItem('leningProducten'));
+  //getLeningProducten(): Array<LeningProduct> {
+  getLeningProducten(): Array<any> {
+    let lps: Array<any> = JSON.parse(localStorage.getItem('leningProducten'));
     return lps;
   }
-
-  /*
-  setLeningProducten(lps: LeningProduct[]) {
-    localStorage.setItem('leningProducten', JSON.stringify(lps));
-  }
-  */
 
   slaLeningOp() {
     let l: Lening = this.getTempLening();
     this.firebaseService.createLening(l);
-    let foundId = this.getLeningId();
-    //let lId = this.firebaseService.getLeningId(); // TODO: De lening die net gemaakt is weer opvragen, en daarvan Id ontvangen.
+    let foundId: string = this.getLeningId(); // De lening die net gemaakt is opvragen, en daarvan Id ontvangen.
     this.slaLeningProductenOp(foundId);
   }
 
   getLeningId(): string {
-    let l: Lening;
+    let l: Lening = new Lening(null);
     let foundId: string;
     this.db.collection('Lening').snapshotChanges().subscribe(item => {
       item.forEach(element => {
@@ -92,27 +85,44 @@ export class LeningCreateComponent implements OnInit {
         l.studentNr = element.payload.doc.get("studentNr");
         l.afgerond = element.payload.doc.get("afgerond");
         l.teLaat = element.payload.doc.get("teLaat");
-        if (l.startDatum == this.lening.startDatum &&
+
+        if ( // Idee: I.p.v. "lening" kan je ook de Lening halen uit getTempLening() ofwel localStorage.
+        l.startDatum == this.lening.startDatum &&
         l.eindDatum == this.lening.eindDatum &&
         l.studentNr == this.lening.studentNr &&
         l.afgerond == this.lening.afgerond &&
-        l.teLaat == this.lening.teLaat) { // Object "lening" wordt gebruikt, maar dit kan ook uit getTempLening() ofwel localStorage.
-          foundId = element.payload.doc.id;
+        l.teLaat == this.lening.teLaat) {
+          // [BUG]: Code herhaalt dit onderdeel, maar returnt alsnog null.
+          if (foundId == null) {
+            foundId = element.payload.doc.id;
+            //console.log("foundId in getLeningId() if-loop: " + foundId);
+          }
         }
-        console.log("foundId: " + foundId);
       })
     });
+    //console.log("foundId in getLeningId(): " + foundId);
     return foundId;
   }
 
   slaLeningProductenOp(lId) {
-    let lps: Array<LeningProduct> = this.getLeningProducten();
+    let lps = this.getLeningProducten();
+    this.leningProducten = lps;
     if (lps != null && lps.length > 0) {
-      for (let lp in lps) {
-        let lpFound: LeningProduct = JSON.parse(lp);
-        lpFound.setLeningId(lId); // TODO: Van deze string een LeningProduct maken, om setLeningId op aan te roepen.
-        this.firebaseService.createLeningProduct(lp);
+      lps.forEach(lp => { // lp is een Product als any.
+        console.log(lp);
+        //let lpId = JSON.stringify(lp).split(",\"id\":\"")[1].substring(0, 20);\
+        let lpToDb: LeningProduct = new LeningProduct(lId, lp.id, lp.aantal);
+        this.firebaseService.createLeningProduct(lpToDb);
+      });
+      /*
+      for (let lp in lps) { // lp is een Product als string.
+        let lpId: string = lp.split(",\"id\":\"")[1].substring(0, 20);
+        let lpFound: any = JSON.parse(lp);
+        lpFound.setLeningId(lId);
+        lpFound.setProductId(lpId);
+        this.firebaseService.createLeningProduct(lpFound); // Probleem: lp is geen LeningProduct, maar Product als any.
       }
+      */
     }
   }
 }

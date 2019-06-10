@@ -12,12 +12,12 @@ export class FirebaseService {
     public db: AngularFirestore,
     public userService: UserService) { }
 
-  getProducts() {
-    return this.db.collection('Producten').snapshotChanges();
-  }
-
   getLeningen() {
     return this.db.collection('Lening').snapshotChanges();
+  }
+
+  getProducts() {
+    return this.db.collection('Producten').snapshotChanges();
   }
 
   createProduct(value) {
@@ -28,16 +28,16 @@ export class FirebaseService {
       });
   }
 
-    deleteProduct(productKey) {
-        return this.db.collection('Producten').doc(productKey).delete();
-    }
+  getProduct(productKey) {
+      return this.db.collection('Producten').doc(productKey).snapshotChanges();
+  }
 
-    getProduct(productKey) {
-        return this.db.collection('Producten').doc(productKey).snapshotChanges();
-    }
+  updateProduct(productKey, value) {
+      return this.db.collection('Producten').doc(productKey).set(value);
+  }
 
-    updateProduct(productKey, value) {
-        return this.db.collection('Producten').doc(productKey).set(value);
+  deleteProduct(productKey) {
+      return this.db.collection('Producten').doc(productKey).delete();
   }
 
   createLening(value) {
@@ -49,12 +49,6 @@ export class FirebaseService {
       teLaat: value.teLaat
     });
   }
-
-  /*
-  getLening() { 
-    //return this.db.collection('Lening').doc(productKey).snapshotChanges();
-  }
-  */
 
   createLeningProduct(value) {
     return this.db.collection('LeningProduct').add({
@@ -70,7 +64,7 @@ export class FirebaseService {
     this.db.collection('Lening').snapshotChanges().subscribe(
       item => {
         item.forEach(element => {
-          if (element.payload.doc.get("studentNr") == user.studentnr) {
+          if (element.payload.doc.get("studentNr") == user.studentNr) {
 
           }
         })

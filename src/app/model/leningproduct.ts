@@ -3,13 +3,22 @@ export class LeningProduct {
   public productId: string;
   public aantal: number;
 
-  constructor(productId: string, aantal: number) {
-    this.leningId = null;
+  constructor(leningId: string, productId: string, aantal: number) {
+    this.leningId = leningId;
     this.productId = productId;
     this.aantal = aantal;
   }
-
+  /*
   setLeningId(leningId) {
     this.leningId = leningId;
   }
+
+  setProductId(productId) {
+    this.productId = productId;
+  }
+
+  setAantal(aantal) {
+    this.aantal = aantal;
+  }
+  */
 }
