@@ -15,22 +15,11 @@ export class AdminGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.authService.isLoggedIn){
-      return true;
-    }
-    else{
-      return this.router.parseUrl("/app-login");
-    }
-  }
-
-  canAcces(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.userService.isAdmin()){
       return true;
     }
-    else{
-      return this.router.parseUrl("/app-home");
+    else {
+      return false;
     }
   }
 
