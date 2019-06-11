@@ -35,4 +35,20 @@ export class LeningService implements OnInit {
         });
         return leningen;
     }
+
+    getLeningen() : Array<Lening> {
+        let leningen : Array<Lening> = new Array<Lening>();
+        this.db.collection('Lening').snapshotChanges().subscribe( item => {
+            item.forEach(element => {
+                this.lening.startDatum = element.payload.doc.get("startDatum");
+                this.lening.eindDatum = element.payload.doc.get("eindDatum");
+                this.lening.studentNr = element.payload.doc.get("studentNr");
+                this.lening.afgerond = element.payload.doc.get("afgerond");
+                this.lening.teLaat = element.payload.doc.get("teLaat");
+                 let leningenLength = leningen.length;
+                 leningen[leningenLength] = this.lening;
+            })
+        });
+        return leningen;
+    }
 }

@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'inventaris-student', component: InventarisStudentComponent, canActivate: [LoginGuard]}, 
   {path: 'details-student/:id', component: ProductDetailStudentComponent, resolve: { data: ProductDetailStudentResolver }, canActivate: [LoginGuard]},
   {path: 'lening-create', component: LeningCreateComponent, canActivate: [LoginGuard]},
-  {path: 'leningen', component: LeningComponent, canActivate: [LoginGuard, AdminGuard]}
+  {path: 'leningen', component: LeningComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({
