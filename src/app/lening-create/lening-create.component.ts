@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Lening } from '../model/lening';
 import { LeningProduct } from '../model/leningproduct';
 import { FirebaseService } from '../services/firebase.service';
-import { UserService, User } from '../services/user.service';
+import { UserService } from '../services/user.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-lening-create',
